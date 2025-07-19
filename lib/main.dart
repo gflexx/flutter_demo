@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +12,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true, colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),),
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+      ),
       home: const RootPage(),
     );
   }
@@ -29,18 +33,20 @@ class _RootPageState extends State<RootPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home')),
+      appBar: AppBar(title: const Text('Flutter Dom')),
+      body: HomePage(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           debugPrint("Something pressed!");
         },
         child: const Icon(Icons.add),
       ),
-      bottomNavigationBar:  NavigationBar(destinations: [
+      bottomNavigationBar: NavigationBar(
+        destinations: [
           NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
           NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
         ],
-        onDestinationSelected: (int index){
+        onDestinationSelected: (int index) {
           setState(() {
             currentPage = index;
           });
