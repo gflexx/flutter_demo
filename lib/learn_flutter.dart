@@ -23,60 +23,66 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
             Navigator.of(context).pop();
           },
         ),
-      ),
-      body: Column(
-        children: [
-          Image.asset('images/pic.jpg'),
-          const Divider(height: 9),
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.all(9),
-            child: const Text(
-              'Some long long text as im trying to get a feel of this, its understandable and in a week I cn wip an app',
-            ),
-          ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: isSwitched ? Colors.blue : Colors.lime,
-            ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.settings),
             onPressed: () {
-              debugPrint('Btn Pressed');
-            },
-            child: const Text('Click Me'),
-          ),
-          // OutlinedButton(
-          //   onPressed: () {
-          //     debugPrint('Outline Clicked');
-          //   },
-          //   child: const Text('Outline Click'),
-          // ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Icon(Icons.local_fire_department),
-              const Text('Some services provided'),
-              Icon(Icons.local_gas_station),
-            ],
-          ),
-          Switch(
-            value: isSwitched,
-            onChanged: (bool newBoolean) {
-              setState(() {
-                isSwitched = newBoolean;
-              });
+              debugPrint('Settings Pressed');
             },
           ),
-          const Text('Checkbox'),
-          Checkbox(
-            value: isCheckbox,
-            onChanged: (bool? newBoolean) {
-              setState(() {
-                isCheckbox = newBoolean;
-              });
-            },
-          ),
-          Image.network('https://git-scm.com/images/logo@2x.png')
         ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Image.asset('images/pic.jpg'),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(9),
+              child: const Text(
+                'I am an AI-integrated Software Engineer. I believe in creating simple but robust systems that are user centered. I love exploring new tech and creating something that gets the job done, makes the users happy to come back again. Be it front-end systems, back-end systems or scripts.',
+              ),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: isSwitched ? Colors.blue : Colors.orange,
+              ),
+              onPressed: () {
+                debugPrint('Btn Pressed');
+              },
+              child: const Text('Click Me'),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Icon(Icons.local_fire_department),
+                const Text('Some services provided'),
+                Icon(Icons.local_gas_station),
+              ],
+            ),
+            Switch(
+              value: isSwitched,
+              onChanged: (bool newBoolean) {
+                setState(() {
+                  isSwitched = newBoolean;
+                });
+              },
+            ),
+            const Text('Checkbox'),
+            Checkbox(
+              value: isCheckbox,
+              onChanged: (bool? newBoolean) {
+                setState(() {
+                  isCheckbox = newBoolean;
+                });
+              },
+            ),
+            Image.network('https://git-scm.com/images/logo@2x.png'),
+            Image.network(
+              'https://i.pinimg.com/736x/1f/a7/cb/1fa7cb883f221a8936f82164239da43f.jpg',
+            ),
+          ],
+        ),
       ),
     );
   }
